@@ -9,19 +9,19 @@ Add it to your XAML like any other custom control, and bind the Items property t
 Here's an example:
 
 At the top:
-<pre><code>
+```xml
      <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 ...
              xmlns:customControls="clr-namespace:AurisIdeas.Controls;assembly=AurisIdeas.Controls"
 			 ...
              >
-</code></pre>
+```
 
 In your XAML content:
-<pre><code>
+```xml
      <customControls:BulletListControl Items="{Binding OfferLocations}" Margin="15,0,15,5" />
-</code></pre>
+```
 
 ## Can I customize anything?
 Sure thing. Just change the BulletCharacter or BulletImage property. I'm still playing with all the customization options. Hey, it's a beta. Feel free to contribute :)
