@@ -7,14 +7,14 @@ using Xamarin.Forms.Xaml;
 namespace AurisIdeas.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    class BulletedListControl : ContentView, IBulletListControl
+    public class BulletListControl : ContentView, IBulletListControl
     {
         #region Bindable Properties
 
         public static readonly BindableProperty ItemsProperty = BindableProperty.Create(
             nameof(Items),
             typeof(IEnumerable<string>),
-            typeof(BulletedListControl),
+            typeof(BulletListControl),
             defaultValue: new List<string>(),
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: ItemsPropertyChanged
@@ -28,13 +28,13 @@ namespace AurisIdeas.Controls
 
         #region Constructors
 
-        public BulletedListControl()
+        public BulletListControl()
         {
             // Assuming Items will be set via binding. Otherwise, call Render() to render empty... but why?
             Render();
         }
 
-        public BulletedListControl(IEnumerable<string> items)
+        public BulletListControl(IEnumerable<string> items)
         {
             if (items != null) Items = items;
 
@@ -111,7 +111,7 @@ namespace AurisIdeas.Controls
         private static void ItemsPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (newValue == null || !(newValue is IEnumerable<string>)) return;
-            var control = (BulletedListControl)bindable;
+            var control = (BulletListControl)bindable;
             control.Items = newValue as IEnumerable<string>;
             control.Render();
         }
