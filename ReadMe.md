@@ -4,7 +4,9 @@
 Word has a beautiful bullet list format for text. HTML does, too. It's a great way of showing data in an immediately understood, organized way. Yet, there isn't a built-in bullet-list in XAML. Sure, I could use a ListView, but that felt pretty heavy. I just wanted a list of strings to show up in a list. So, I built this Xamarin.Forms control. I hope you enjoy it.
 
 ## How do I use it?
-Add it to your XAML like any other custom control, and bind the Items property to some IEnumerable, like so:
+Add it to your XAML like any other custom control, and bind the Items property to some IEnumerable. By default, a round bullet character is used.
+
+Here's an example:
 
 At the top:
 <pre><code>
