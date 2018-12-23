@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>AI.Xamarin.Forms.Bullet.List</PackageId>
-    <Version>1.0.0-beta3</Version>
+    <Version>1.0.0-beta4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Auri Rahimzadeh</Authors>
     <Company>Auri's Ideas LLC</Company>
