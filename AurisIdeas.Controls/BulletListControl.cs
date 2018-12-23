@@ -83,7 +83,7 @@ namespace AurisIdeas.Controls
                     BulletCharacter = DefaultBulletCharacter;
 
                 // Choose the bullet. Default to text if no image defined.
-                var bullet = !string.IsNullOrWhiteSpace(BulletCharacter) && BulletImage != null
+                var bullet = !string.IsNullOrWhiteSpace(BulletCharacter) && BulletImage == null
                 ? (View)new Label { Text = BulletCharacter, Margin = ListLayoutPadding, FontSize = 14, VerticalTextAlignment = TextAlignment.Start }
                 : new Image { Source = ImageSource.FromStream(() => BulletImage) };
 
