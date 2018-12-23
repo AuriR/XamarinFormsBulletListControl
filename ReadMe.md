@@ -1,6 +1,6 @@
 # Bullet List Control for Xamarin.Forms
 
-## So why would I build this?
+## What's the point?
 Word has a beautiful bullet list format for text. HTML does, too. It's a great way of showing data in an immediately understood, organized way. Yet, there isn't a built-in bullet-list in XAML. Sure, I could use a ListView, but that felt pretty heavy. I just wanted a list of strings to show up in a list. So, I built this Xamarin.Forms control. I hope you enjoy it.
 
 ## How do I use it?
@@ -14,13 +14,41 @@ At the top:
              xmlns:customControls="clr-namespace:AurisIdeas.Controls;assembly=AurisIdeas.Controls"
 			 ...
              >
-</code><pre>
+</code></pre>
 
 In your XAML content:
 <pre><code>
      <customControls:BulletListControl Items="{Binding OfferLocations}" Margin="15,0,15,5" />
-</code><pre>
+</code></pre>
 
 ## Can I customize anything?
-
 Sure thing. Just change the BulletCharacter or BulletImage property. I'm still playing with all the customization options. Hey, it's a beta. Feel free to contribute :)
+
+## License
+Auri's Ideas Controls Library - Bullet List Control
+
+The MIT License (MIT)
+
+Copyright (c) 2018 Auri's Ideas LLC
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+For more information about Auri's Ideas, visit https://auri.net
