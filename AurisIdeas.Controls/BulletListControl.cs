@@ -22,7 +22,14 @@ namespace AurisIdeas.Controls
 
         public static readonly BindableProperty BulletImageProperty = BindableProperty.Create(nameof(BulletImageProperty), typeof(Stream), typeof(Stream));
 
-        public static readonly BindableProperty BulletCharacterProperty = BindableProperty.Create(nameof(BulletCharacter), typeof(string), typeof(string));
+        public static readonly BindableProperty BulletCharacterProperty = BindableProperty.Create(nameof(BulletCharacter), typeof(string), typeof(string), propertyChanged: BulletCharacterPropertyChanged);
+
+
+        public static readonly BindableProperty BulletCharacterFontSizeProperty = BindableProperty.Create(nameof(BulletCharacterFontSize), typeof(double), typeof(double), propertyChanged: BulletCharacterFontSizePropertyChanged);
+
+
+        public static readonly BindableProperty ListItemFontSizeProperty = BindableProperty.Create(nameof(ListItemFontSize), typeof(double), typeof(double), propertyChanged: ListItemFontSizePropertyChanged);
+
 
         #endregion
 
@@ -64,6 +71,10 @@ namespace AurisIdeas.Controls
 
         public Thickness ListLayoutPadding { get; set; } = new Thickness(1);
 
+        public double ListItemFontSize { get; set; } = 12;
+
+        public double BulletCharacterFontSize { get; set; } = 14;
+
         #endregion
 
         #region Rendering
@@ -84,13 +95,13 @@ namespace AurisIdeas.Controls
 
                 // Choose the bullet. Default to text if no image defined.
                 var bullet = !string.IsNullOrWhiteSpace(BulletCharacter) && BulletImage == null
-                ? (View)new Label { Text = BulletCharacter, Margin = ListLayoutPadding, FontSize = 14, VerticalTextAlignment = TextAlignment.Start }
+                ? (View)new Label { Text = BulletCharacter, Margin = ListLayoutPadding, FontSize = BulletCharacterFontSize, VerticalTextAlignment = TextAlignment.Start }
                 : new Image { Source = ImageSource.FromStream(() => BulletImage) };
 
                 // Create the horizontal container.
                 var container = new StackLayout { HorizontalOptions = LayoutOptions.Fill, Orientation = StackOrientation.Horizontal };
                 container.Children.Add(bullet);
-                container.Children.Add(new Label { Text = item, VerticalTextAlignment = TextAlignment.Start });
+                container.Children.Add(new Label { Text = item, VerticalTextAlignment = TextAlignment.Start, FontSize = ListItemFontSize });
                 parentLayout.Children.Add(container);
             }
 
@@ -113,6 +124,48 @@ namespace AurisIdeas.Controls
             if (newValue == null || !(newValue is IEnumerable<string>)) return;
             var control = (BulletListControl)bindable;
             control.Items = newValue as IEnumerable<string>;
+            control.Render();
+        }
+
+        /// <summary>
+        /// Handles changing the bullet character font size.
+        /// </summary>
+        /// <param name="bindable"></param>
+        /// <param name="oldValue"></param>
+        /// <param name="newValue"></param>
+        private static void BulletCharacterFontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue == null || !(newValue is double)) return;
+            var control = (BulletListControl)bindable;
+            control.BulletCharacterFontSize = (double)newValue;
+            control.Render();
+        }
+
+        /// <summary>
+        /// Handles changing the character used for bullets.
+        /// </summary>
+        /// <param name="bindable"></param>
+        /// <param name="oldValue"></param>
+        /// <param name="newValue"></param>
+        private static void BulletCharacterPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue == null || !(newValue is string)) return;
+            var control = (BulletListControl)bindable;
+            control.BulletCharacter = (string)newValue;
+            control.Render();
+        }
+
+        /// <summary>
+        /// Handles changing the list item font size.
+        /// </summary>
+        /// <param name="bindable"></param>
+        /// <param name="oldValue"></param>
+        /// <param name="newValue"></param>
+        private static void ListItemFontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue == null || !(newValue is double)) return;
+            var control = (BulletListControl)bindable;
+            control.ListItemFontSize = (double)newValue;
             control.Render();
         }
 

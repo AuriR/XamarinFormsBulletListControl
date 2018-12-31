@@ -3,13 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>AI.Xamarin.Forms.Bullet.List</PackageId>
-    <Version>1.0.0-beta4</Version>
+    <Version>1.0.0-beta5</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Auri Rahimzadeh</Authors>
     <Company>Auri's Ideas LLC</Company>
     <Product>Xamarin.Forms Bullet List Control</Product>
     <Description>Easily display a bullet list in your Xamarin.Forms app with this control. Supports both text character and image bullet options.</Description>
-    <PackageReleaseNotes>v1.0.0 Beta 1 - First beta release. Still working on it, but getting it out there. Hey, our first open sourced Xamarin control, w00t!</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.0.0 Beta 5 - Added support for changing font sizes.
+v1.0.0 Beta 4 - First beta release. Still working on it, but getting it out there. Hey, our first open sourced Xamarin control, w00t!
+</PackageReleaseNotes>
     <PackageTags>xamarin,forms,bullet,bulleted,list</PackageTags>
     <Copyright>(c) 2018 Auri's Ideas LLC</Copyright>
     <PackageProjectUrl>https://github.com/AuriR/XamarinFormsBulletListControl/</PackageProjectUrl>
