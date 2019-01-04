@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BulletListControlTester"
+             xmlns:cc="clr-namespace:AurisIdeas.Controls;assembly=AurisIdeas.Controls"
+             x:Class="BulletListControlTester.MainPage"
+             Title="Bullet List Tester"
+             NavigationPage.HasNavigationBar="True">
+
+    <StackLayout>
+        <!-- Note that character font size can mess with the text alignment. Keep that in mind when using different character sizes. -->
+        <cc:BulletListControl x:Name="bulletList" 
+                              Items="{Binding ListItems}" 
+                              BulletCharacterFontSize="18" 
+                              ListItemFontSize="18"></cc:BulletListControl>
+    </StackLayout>
+
+</ContentPage>
