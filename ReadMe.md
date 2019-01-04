@@ -68,6 +68,6 @@ SOFTWARE.
 
 For more information about Auri's Ideas, visit https://auri.net
 
-[screenshot_tester]: https://github.com/aurir/screenshot_tester.png "Bullet List Example Screenshot"
-[screenshot_dd]: https://github.com/aurir/screenshot_dd.png "Daily Ding Example Screenshot"
+[screenshot_tester]: https://github.com/AuriR/XamarinFormsBulletListControl/screenshot_tester.png "Bullet List Example Screenshot"
+[screenshot_dd]: https://github.com/AuriR/XamarinFormsBulletListControl/screenshot_dd.png "Daily Ding Example Screenshot"
 [twitter]: https://twitter.com/Auri
