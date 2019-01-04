@@ -3,6 +3,16 @@
 ## What's the point?
 Word has a beautiful bullet list format for text. HTML does, too. It's a great way of showing data in an immediately understood, organized way. Yet, there isn't a built-in bullet-list in XAML. Sure, I could use a ListView, but that felt pretty heavy. I just wanted a list of strings to show up in a list. So, I built this Xamarin.Forms control. I hope you enjoy it.
 
+##What's it look like?
+It looks like a bullet list, just like you want :) Here's an example using the tester app:
+
+![screenshot_tester]
+
+Here's the bullet list used in a Production app, embedded as a custom control in a ListView:
+
+![screenshot_dd]
+
+
 ## How do I use it?
 Add it to your XAML like any other custom control, and bind the Items property to some IEnumerable. By default, a round bullet character is used.
 
@@ -25,6 +35,9 @@ In your XAML content:
 
 ## Can I customize anything?
 Sure thing. Just change the BulletCharacter or BulletImage property. I'm still playing with all the customization options. Hey, it's a beta. Feel free to contribute :)
+
+## What if I have questions?
+Hit me up on Twitter: [Auri][twitter]
 
 ## License
 Auri's Ideas Controls Library - Bullet List Control
@@ -54,3 +67,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 For more information about Auri's Ideas, visit https://auri.net
+
+[screenshot_tester]: https://github.com/aurir/screenshot_tester.png "Bullet List Example Screenshot"
+[screenshot_dd]: https://github.com/aurir/screenshot_dd.png "Daily Ding Example Screenshot"
+[twitter]: https://twitter.com/Auri
