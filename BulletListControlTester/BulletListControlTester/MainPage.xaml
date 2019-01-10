@@ -7,12 +7,24 @@
              Title="Bullet List Tester"
              NavigationPage.HasNavigationBar="True">
 
-    <StackLayout>
-        <!-- Note that character font size can mess with the text alignment. Keep that in mind when using different character sizes. -->
-        <cc:BulletListControl x:Name="bulletList" 
-                              Items="{Binding ListItems}" 
-                              BulletCharacterFontSize="18" 
-                              ListItemFontSize="18"></cc:BulletListControl>
-    </StackLayout>
+    <ScrollView>
+
+        <StackLayout>
+            
+            <!-- Note that character font size can mess with the text alignment. Keep that in mind when using different character sizes. -->
+            <Label>Large bullet font test:</Label>
+            <cc:BulletListControl  
+                Items="{Binding ListItems}" 
+                BulletCharacterFontSize="50" 
+                ListItemFontSize="18"></cc:BulletListControl>
+
+            <Label>Same-sized bullet font test:</Label>
+            <cc:BulletListControl  
+                Items="{Binding ListItems}" 
+                BulletCharacterFontSize="18" 
+                ListItemFontSize="18"></cc:BulletListControl>
+
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

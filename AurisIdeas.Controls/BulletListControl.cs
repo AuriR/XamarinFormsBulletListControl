@@ -73,7 +73,7 @@ namespace AurisIdeas.Controls
 
         public double ListItemFontSize { get; set; } = 12;
 
-        public double BulletCharacterFontSize { get; set; } = 14;
+        public double BulletCharacterFontSize { get; set; } = 12;
 
         #endregion
 
@@ -84,25 +84,67 @@ namespace AurisIdeas.Controls
             if (Items == null || !Items.Any()) return;
 
             // Create the container.
-            var parentLayout = new StackLayout { HorizontalOptions = LayoutOptions.Fill, Padding = new Thickness(1) };
+            //var parentLayout = new StackLayout { HorizontalOptions = LayoutOptions.Fill, Padding = new Thickness(1) };
+            var parentLayout = new Grid { HorizontalOptions = LayoutOptions.Fill, Padding = new Thickness(0) };
+            parentLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            parentLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+            for (var i = 0; i < Items.Count(); i++) parentLayout.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
             // Render the list.
-            foreach (var item in Items)
+            for (var row = 0; row < Items.Count(); row++)
             {
+                var item = Items.ElementAt(row);
+
                 // Make sure they provided a good bullet.
                 if (string.IsNullOrWhiteSpace(BulletCharacter) && BulletImage == null)
                     BulletCharacter = DefaultBulletCharacter;
 
                 // Choose the bullet. Default to text if no image defined.
                 var bullet = !string.IsNullOrWhiteSpace(BulletCharacter) && BulletImage == null
-                ? (View)new Label { Text = BulletCharacter, Margin = ListLayoutPadding, FontSize = BulletCharacterFontSize, VerticalTextAlignment = TextAlignment.Start }
+                ? (View)new Label
+                {
+                    Text = BulletCharacter,
+                    //Margin = ListLayoutPadding,
+                    FontSize = BulletCharacterFontSize,
+                    VerticalTextAlignment = TextAlignment.Start,
+                    HorizontalTextAlignment = TextAlignment.Start,
+                    VerticalOptions = LayoutOptions.StartAndExpand,
+                    BackgroundColor = Color.LightGreen
+                }
                 : new Image { Source = ImageSource.FromStream(() => BulletImage) };
 
-                // Create the horizontal container.
-                var container = new StackLayout { HorizontalOptions = LayoutOptions.Fill, Orientation = StackOrientation.Horizontal };
-                container.Children.Add(bullet);
-                container.Children.Add(new Label { Text = item, VerticalTextAlignment = TextAlignment.Start, FontSize = ListItemFontSize });
-                parentLayout.Children.Add(container);
+                // Create the horizontal container, the bullet, and the line text.
+                //var container = new StackLayout
+                //{
+                //    HorizontalOptions = LayoutOptions.Fill,
+                //    Orientation = StackOrientation.Horizontal,
+                //    BackgroundColor = Color.CornflowerBlue
+                //};
+
+                var lineItem = new Label
+                {
+                    Text = item,
+                    HorizontalTextAlignment = TextAlignment.Start,
+                    VerticalTextAlignment = TextAlignment.Start,
+                    VerticalOptions = LayoutOptions.StartAndExpand,
+                    FontSize = ListItemFontSize,
+                    BackgroundColor = Color.Aqua
+                };
+
+                // Calculate line item offset if font sizes differ.
+                if (BulletCharacterFontSize > ListItemFontSize)
+                {
+                    var difference = -((BulletCharacterFontSize - ListItemFontSize) / 2) - 3;
+                    var margin = bullet.Margin; // have to do it this way because .Top/.Bottom and so forth can't be set directly
+                    margin.Top = difference;
+                    bullet.Margin = margin;
+                }
+
+                // TODO: Apply any specified colors.
+
+                parentLayout.Children.Add(bullet, 0, row);
+                parentLayout.Children.Add(lineItem, 1, row);
+                //parentLayout.Children.Add(container);
             }
 
             // Render.
