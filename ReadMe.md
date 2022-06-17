@@ -41,6 +41,13 @@ In your XAML content:
 ## Can I customize anything?
 Sure thing. Just change the BulletCharacter or BulletImage property. I'm still playing with all the customization options. Hey, it's a beta. Feel free to contribute :)
 
+**Example of changing the text colors:**
+```xml
+<customControls:BulletListControl Items="{Binding ListItems}" ListItemFontColor="Blue" BulletCharacterFontColor="Red"/>
+```
+![ColorChangedExample](https://user-images.githubusercontent.com/22691956/174345803-24b0c7b7-5926-4e86-b874-88286172b2e4.png)
+
+
 ## What if I have questions?
 Hit me up on Twitter: [Auri][twitter]
 
